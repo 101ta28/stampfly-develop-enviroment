@@ -1,32 +1,38 @@
-# StampFlyの操作方法
-
-## uv を用いた環境構築
+# `uv` を用いた環境構築
 
 [uv](https://docs.astral.sh/uv/getting-started/installation/)をインストールします。
 
 このリポジトリをフォークします。
 
-### オンライン
+## パッケージをオンラインで入れる
 
-フォークしたリポジトリをクローンし、リポジトリ内に入ります。
+1. フォークしたリポジトリをクローンし、リポジトリ内に入ります。
 
-`uv sync`を実行することで、仮想環境の立ち上げと必要なパッケージがインストールされます。
+2. `uv sync`を実行することで、仮想環境の立ち上げと必要なパッケージがインストールされます。
 
-### オフライン
+## パッケージをオフラインで入れる
 
-[PyPi](https://pypi.org/project/platformio/#files)からplatformioのパッケージをダウンロードします。
+1. [PyPi](https://pypi.org/project/platformio/#files)からplatformioのパッケージをダウンロードします。
 
-パッケージは`platformio-x.x.x.tar`のような形式です。
+    - パッケージは`platformio-x.x.x.tar`のような形式です。
 
-リポジトリ内にダウンロードしたパッケージを移動します。
+2. リポジトリ内にダウンロードしたパッケージを移動します。
 
-ファイルを展開します。
+3. `tar xfvz platformio-x.x.xx.tar`を実行し、ファイルを展開します。
 
-`tar xfvz platformio-x.x.xx.tar`
+4. `uv add --no-index --find-links=./platformio-x.x.xx platformio`を実行し、パッケージをインストールします。
 
-ファイルからパッケージをインストールします。
+## ビルド・書き込み
 
-`uv add --no-index --find-links=./platformio-x.x.xx platformio`
+`uvx platformio --version`を実行し、platformioがインストールされているか確認します。
+
+`PlatformIO Core, version x.x.xx`のような表記が出ればインストールされています。
+
+ビルドは`uvx platformio run`で行います。
+
+ビルドと書き込みを同時に行う場合は`uvx platformio run --target upload`を実行してください。
+
+# StampFlyの操作方法
 
 ## 安全に飛ばすために
 ### 電池の管理
@@ -88,6 +94,55 @@
 - モード３はモード２のスティック操作が左右逆です。ただし、前方ボタンの役割は入れ替わりません
 ### 衝撃停止機能
 - 大きな衝撃が加わると自動的にモータが停止します
+
+# Setting Up an Environment Using `uv`
+
+[uv](https://docs.astral.sh/uv/getting-started/installation/) should be installed.
+
+Fork this repository.
+
+### Installing Packages Online
+
+1. Clone the forked repository and navigate into it.
+2. Run `uv sync` to create a virtual environment and install the required packages.
+
+### Installing Packages Offline
+
+1. Download the platformio package from [PyPI](https://pypi.org/project/platformio/#files).
+   - The package will have a name like `platformio-x.x.x.tar`.
+
+2. Move the downloaded package into the repository directory.
+
+3. Extract the contents of the package:
+   ```bash
+   tar xfvz platformio-x.x.xx.tar
+   ```
+
+4. Install the package from the extracted files:
+   ```bash
+   uv add --no-index --find-links=./platformio-x.x.xx platformio
+   ```
+
+### Build and Upload
+
+1. Verify the installation of platformio by running:
+   ```bash
+   uvx platformio --version
+   ```
+   If installed, you should see output like:
+   ```
+   PlatformIO Core, version x.x.xx
+   ```
+
+2. To build the project, use:
+   ```bash
+   uvx platformio run
+   ```
+
+3. To build and upload simultaneously, run:
+   ```bash
+   uvx platformio run --target upload
+   ```
 
 # StampFly Operation Manual
 
