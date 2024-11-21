@@ -14,7 +14,11 @@
 
 ## パッケージをオフラインで入れる
 
-1. [PyPi](https://pypi.org/project/platformio/#files)からplatformioのパッケージをダウンロードします。
+ここでは、PyPIからパッケージをダウンロードしてあるという流れで説明しています。
+
+事前にパッケージを用意すればオンラインで利用が出来ない場合でも環境構築可能です。
+
+1. [PyPI](https://pypi.org/project/platformio/#files)からplatformioのパッケージをダウンロードします。
 
     - パッケージは`platformio-x.x.x.tar`のような形式です。
 
@@ -109,6 +113,10 @@ Fork this repository.
 2. Run `uv sync` to create a virtual environment and install the required packages.
 
 ### Installing Packages Offline
+
+Here, the explanation assumes that the package has already been downloaded from PyPI. 
+
+By preparing the package in advance, you can set up the environment even in situations where online access is unavailable.
 
 1. Download the platformio package from [PyPI](https://pypi.org/project/platformio/#files).
    - The package will have a name like `platformio-x.x.x.tar`.
