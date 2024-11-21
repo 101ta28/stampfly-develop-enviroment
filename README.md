@@ -1,3 +1,5 @@
+# オリジナルは[https://github.com/M5Fly-kanazawa/StampFly](https://github.com/M5Fly-kanazawa/StampFly)です！
+
 # `uv` を用いた環境構築
 
 [uv](https://docs.astral.sh/uv/getting-started/installation/)をインストールします。
